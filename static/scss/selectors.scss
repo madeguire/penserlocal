@@ -1,0 +1,31 @@
+
+//Selectors
+
+html{
+	font-size: 10px;
+}
+
+body{
+	color: $bleu;
+}
+
+h1 {
+	font-family: lorabold;
+	font-size: 5rem;
+}
+
+h2{
+	font-family: oswaldregular;
+	font-size: 2.4rem;
+	text-transform: uppercase;
+}
+
+h3, a{
+	font-family: notobold;
+	font-size: 1.5rem;
+}
+
+p{
+	font-family: notoregular;
+	font-size: 1.5rem;
+}
