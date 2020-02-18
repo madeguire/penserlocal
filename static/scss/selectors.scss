@@ -3,10 +3,12 @@
 
 html{
 	font-size: 10px;
+	font-family: notoregular;
 }
 
 body{
 	color: $bleu;
+	font-family: notoregular;
 }
 
 h1 {
@@ -27,5 +29,15 @@ h3, a{
 
 p{
 	font-family: notoregular;
-	font-size: 1.5rem;
+	font-size: 1.4rem;
+}
+
+a {
+	text-decoration: none;
+	color: $bleu;
+}
+
+a:hover {
+	text-decoration: none;
+	color: $bleu;
 }
