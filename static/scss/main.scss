@@ -2,39 +2,429 @@
 
 //reset
 
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;vertical-align:baseline; font-weight: normal;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
-//class
 
-header {
-	padding: 20px 0 0 0;
+//Header
+
+.mainHeader{
+	padding: 20px 0 50px 0;
+	z-index: 99;
 }
 
 .logo{
-	max-width: 130px;
+	max-width: 100px;
 }
 
-nav{
+.whiteLogo{
+	position: fixed;
+	z-index: 91;
+	width: 100%;
+}
+
+.whiteLogo--zIndex{
+	z-index: 90;
+}
+
+.whiteLogo--mask{
+	@include prefix(clip-path, inset(0px 0px 0px 100vw), webkit ms moz o);
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.whiteLogo--maskSlideIn{
+	@include prefix(clip-path, inset(0px 0px 0px -20vw), webkit ms moz o);
+}
+
+.navDesktop{
 	display: flex;
-	justify-content: flex-end;
 	align-items: flex-end;
+	justify-content: flex-end;
 }
 
-nav a{
+.navDesktop__menuItem{
 	padding: 13px 20px;
 	border: solid 3px $blanc;
+	@include prefix(transition, border-color 0.3s ease, webkit ms moz o);
 }
 
-nav a:hover{
-	border: solid 3px $creme;
+.navDesktop__menuItem:hover,
+.navDesktop__menuItem:focus{
+	border: solid 3px $rose;
 }
 
-.separator{
+.navDesktop__separator{
 	width: 3px;
 	height: 48px;
 	margin: 0 20px;
 	background-color: $rose;
 }
 
+.burger{
+	width: 80px;
+	height: 80px;
+	background-color: $creme;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 90;
+}
+
+.burger__menuLine{
+	width: 22px;
+	height: 4px;
+	background-color: $bleu;
+	border-radius: 2px;
+	margin-bottom: 4px;
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+	transform-origin: center center;
+	
+}
+
+.burger__menuLine--topLineAfter{
+	@include prefix(transform, rotate(45deg) translateY(5px) translateX(6px), webkit ms moz o);
+}
+
+.burger__menuLine--middleLineAfter{
+	@include prefix(transform, scale(0,1), webkit ms moz o);
+}
+
+.burger__menuLine--bottomLineAfter{
+	@include prefix(transform, rotate(-45deg) translateY(-5px) translateX(6px), webkit ms moz o);
+}
+
+.navMobile{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $bleu;
+	top: 0px;
+	left: 0px;
+	z-index: 80;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	padding: 10%;
+	overflow: hidden;
+}
+
+.navMobile--overflowInit{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.navMobile--overflow{
+	overflow: hidden;
+}
+
+.navMobile__spacer{
+	height: 40px;
+}
+
+.navMobile__menuItem{
+	color: $creme;
+	font-size: 40px;
+	padding: 0 0 20px 0;
+	font-family: lorabold;
+	font-size: 5rem;
+}
+
+.navMobile__separator{
+	width: 100%;
+	height: 10px;
+	background-color: $rose;
+	border-radius: 5px;
+}
+
+.navMobile--init{
+	@include prefix(transform, translateX(100%), webkit ms moz o);
+	@include prefix(transition, transform 0.6s ease, webkit ms moz o);
+}
+
+.navMobile--slideIn{
+	@include prefix(transform, translateX(0%), webkit ms moz o);
+}
+
+.contentLeft{
+	align-items:flex-start;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.contentLeft--removePaddingLeft{
+	padding-left: 0px;
+}
+
+.contentLeft__mainTitle, 
+.contentCenter__mainTitle {
+	margin-bottom: 30px;
+}
+
+.contentLeft__copy,
+.contentCenter__copy{
+	margin-bottom: 30px;
+}
+
+.contentLeft__copy--txtRose,
+.contentCenter__copy--txtRose{
+	color: $rose;
+	@include prefix(transition, color 0.6s ease, webkit ms moz o);
+}
+
+a[class|="contentLeft__copy--txtRose"]:hover,
+a[class|="contentCenter__copy--txtRose"]:hover{
+	color: $bleu;
+}
+
+.contentLeft__ctaMain{
+	background-color: $rose;
+	padding: 25px;
+	border-radius: 4px;
+	display: inline-block;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.contentLeft__ctaMain--vert{
+	background-color: $vert;
+}
+
+.contentLeft__ctaMain:hover,
+.contentLeft__ctaMain:focus{
+	background-color: $bleu;
+	color: $blanc;
+}
+
+.image--removePaddingRight{
+	padding-right: 0px;
+}
+
+.cochonSeul{
+	max-width: 30%;
+}
+
+.cochonMaison{
+	max-width: 100%;
+}
+
+.contentCenter{
+	align-items:center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.contentCenter--Spacing{
+	padding: 60px 0 170px;
+}
+
+.contentCenter--bg{
+	background-color: $creme;
+}
+
+.companyFeature{
+	width: 100%;
+}
+
+.companyFeature__logo{
+	margin-top: -20%;
+}
+
+.companyFeature__logo--dimensions{
+	width: 130px;
+	height: 130px;
+	background-color: $blanc;
+	border-radius:  65px 0px 65px 65px;
+}
+
+.companyFeature_src{
+	width: 100%;
+}
+
+.slideshow{
+	margin: 0 120px;
+}
+
+.main-carousel{
+	margin-top: -120px;
+}
+
+.main-carousel__item{
+	margin: 15px;
+	width: 31%;
+	height: auto;
+	opacity: 0.3;
+	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
+}
+
+.main-carousel__item.is-selected{
+	opacity: 1;
+}
+
+.bulletList{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.bullet{
+	width: 13px;
+	height: 13px;
+	margin-right: 10px;
+	margin-top: 3px;
+	border-radius: 8px;
+	background-color: $vert;
+}
+
+.pinOutline{
+	width: 200px;
+	height: 200px;
+	background-image: url('assets/svg/pinOutlined.svg');
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.pinOutline__text{
+	width: 140px;
+	height: 140px;
+}
+
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.pinContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 
+//media queries
+
+@media (max-width: 575.98px) { 
+
+.navMobile{
+	padding: 20% 10% 10% 10%;
+}
+	
+.navMobile__menuItem{
+	font-size: 2.8rem;
+}
+
+}
+
+@media (max-width: 767.98px) { 
+	
+.mainHeader{
+	padding: 20px 10px 20px 10px;
+}
+
+.navMobile__menuItem{
+	text-align: left;
+}
+	
+.contentLeft{
+	text-align: center;
+}
+
+.contentLeft__copy--leftMobile{
+	text-align: left;
+}
+
+.image{
+	text-align: center;
+	padding: 0 0 20px 0;
+}
+
+.image--removePaddingRight{
+	padding-right: 15px;
+}
+
+.contentLeft--removePaddingLeft{
+	padding-left: 15px;	
+}
+
+.main-carousel__item{
+	width: 70%;
+}
+
+.contentCenter--Spacing{
+	padding: 60px 0 140px;
+}
+
+}
+
+@media (max-width: 991.98px) { 
+	
+.cochonMaison{
+	max-width: 133%;
+}
+
+.slideshow{
+	margin: 0;
+}
+
+
+	 }
+	 
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+	
+	 }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+	
+.pinOutline{
+	width: 560px;
+	height: 560px;
+	margin-left: -200px;
+	margin-bottom: auto;
+}
+
+.pinOutline__text{
+	width: auto;
+	height: auto;
+}
+
+.pinContainer{
+	display: block;
+}
+	
+	 }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	
+.pinOutline{
+	margin-left: -100px;
+}
+
+	 }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+	
+	.pinOutline{
+	margin-left: auto;
+}
+	
+	 }
+	
+	

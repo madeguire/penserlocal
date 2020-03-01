@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="560px" height="560px" viewBox="0 0 560 560" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-140.000000, -1649.000000)" stroke="#FEA49F" stroke-width="3">
+            <g id="entreprise" transform="translate(140.000000, 1606.000000)">
+                <g id="rotatingPin" transform="translate(0.000000, 43.000000)">
+                    <path d="M558.5,1.5 L280,1.5 C126.188697,1.5 1.5,126.188697 1.5,280 C1.5,433.811303 126.188697,558.5 280,558.5 C433.811303,558.5 558.5,433.811303 558.5,280 L558.5,1.5 Z M278.5,376.5 C225.480664,376.5 182.5,333.519336 182.5,280.5 C182.5,227.480664 225.480664,184.5 278.5,184.5 C331.519336,184.5 374.5,227.480664 374.5,280.5 C374.5,333.519336 331.519336,376.5 278.5,376.5 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

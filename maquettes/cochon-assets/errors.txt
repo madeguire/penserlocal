@@ -1,0 +1,4 @@
+[2020-2-29 15:45:31] layer "cochonFilled.svg": Bevel and Emboss filter effects are not supported by SVG export.
+[2020-2-29 15:45:31] layer "cochonFilled.svg": Bevel and Emboss filter effects are not supported by SVG export.
+[2020-2-29 15:45:31] layer "cochonFilled.svg": Bevel and Emboss filter effects are not supported by SVG export.
+[2020-2-29 15:45:31] layer "cochonFilled.svg": Bevel and Emboss filter effects are not supported by SVG export.
