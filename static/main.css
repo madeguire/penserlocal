@@ -55,6 +55,7 @@ h1 {
 h2 {
   font-family: oswaldregular;
   font-size: 2.4rem;
+  line-height: 2.6rem;
   text-transform: uppercase;
 }
 
@@ -103,6 +104,69 @@ section {
   h1 {
     font-size: 3.6rem;
     line-height: 4rem;
+  }
+}
+@keyframes highlight {
+  0% {
+    fill: #F6F1E5;
+  }
+  50% {
+    fill: #101357;
+  }
+  100% {
+    fill: #F6F1E5;
+  }
+}
+.maison-15 {
+  animation: highlight 3s 0.5s ease infinite;
+}
+
+.maison-28 {
+  animation: highlight 3s ease infinite;
+}
+
+.maison-31 {
+  animation: highlight 3s 1s ease infinite;
+}
+
+.maison-8 {
+  animation: highlight 3s 1.5s ease infinite;
+}
+
+.maison-43 {
+  animation: highlight 3s 0.5s ease infinite;
+}
+
+.maison-51 {
+  animation: highlight 3s 1s ease infinite;
+}
+
+.maison-63 {
+  animation: highlight 3s ease infinite;
+}
+
+.maison-78 {
+  animation: highlight 3s 1.5s ease infinite;
+}
+
+.maison-85 {
+  animation: highlight 3s 1.5s ease infinite;
+}
+
+.maison-42 {
+  animation: highlight 3s 0.5s ease infinite;
+}
+
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -336,6 +400,11 @@ table {
   margin-bottom: 30px;
 }
 
+.contentLeft__mainTitle--white,
+.contentCenter__mainTitle--white {
+  color: #ffffff;
+}
+
 .contentLeft__copy,
 .contentCenter__copy {
   margin-bottom: 30px;
@@ -351,8 +420,20 @@ table {
   transition: color 0.6s ease;
 }
 
+.contentLeft__copy--txtVert,
+.contentCenter__copy--txtVert {
+  color: #3FD2C7;
+  -webkit-transition: color 0.6s ease;
+  -ms-transition: color 0.6s ease;
+  -moz-transition: color 0.6s ease;
+  -o-transition: color 0.6s ease;
+  transition: color 0.6s ease;
+}
+
 a[class|=contentLeft__copy--txtRose]:hover,
-a[class|=contentCenter__copy--txtRose]:hover {
+a[class|=contentCenter__copy--txtRose]:hover,
+a[class|=contentLeft__copy--txtVert]:hover,
+a[class|=contentCenter__copy--txtVert]:hover {
   color: #101357;
 }
 
@@ -370,6 +451,17 @@ a[class|=contentCenter__copy--txtRose]:hover {
 
 .contentLeft__ctaMain--vert {
   background-color: #3FD2C7;
+}
+
+.contentLeft__ctaMain--outlinedRose {
+  background-color: transparent;
+  border: solid 2px #FEA49F;
+  color: #ffffff;
+}
+
+.contentLeft__ctaMain--outlinedRose:hover {
+  background-color: #FEA49F !important;
+  color: #101357 !important;
 }
 
 .contentLeft__ctaMain:hover,
@@ -479,22 +571,55 @@ a[class|=contentCenter__copy--txtRose]:hover {
   height: 140px;
 }
 
-.rotate {
-  animation: rotation 30s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
 .pinContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.footerContainer .row {
+  margin-bottom: 60px;
+}
+
+.bottomPage {
+  margin-bottom: 0px !important;
+}
+
+.bottomPage p, .bottomPage a {
+  font-size: 1.1rem;
+}
+
+.footerContainer__separator {
+  background-color: #F6F1E5;
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.footerContainer__facebook {
+  background-color: #101357;
+  padding: 20px;
+}
+
+.footerContainer__facebook__txt {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.facebookLogo {
+  margin: 0 30px -23px 0;
+}
+
+.footerContainer__facebook__ctaMain {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.legalContainer {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #F6F1E5;
+  text-align: center;
 }
 
 @media (max-width: 575.98px) {
@@ -504,6 +629,26 @@ a[class|=contentCenter__copy--txtRose]:hover {
 
   .navMobile__menuItem {
     font-size: 2.8rem;
+  }
+
+  .footerContainer__facebook__txt {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .footerContainer__facebook__ctaMain {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .facebookLogo {
+    margin: 0 0 30px;
+  }
+
+  .footerContainer__facebook {
+    padding: 30px 0;
   }
 }
 @media (max-width: 767.98px) {
@@ -521,6 +666,10 @@ a[class|=contentCenter__copy--txtRose]:hover {
 
   .contentLeft__copy--leftMobile {
     text-align: left;
+  }
+
+  .marginBottomCol {
+    margin-bottom: 60px;
   }
 
   .image {
@@ -547,6 +696,7 @@ a[class|=contentCenter__copy--txtRose]:hover {
 @media (max-width: 991.98px) {
   .cochonMaison {
     max-width: 133%;
+    width: 133%;
   }
 
   .slideshow {

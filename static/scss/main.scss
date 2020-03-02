@@ -1,4 +1,4 @@
-@import 'variables.scss', 'fonts.scss', 'selectors.scss', 'mixins.scss';
+@import 'variables.scss', 'fonts.scss', 'selectors.scss', 'mixins.scss', 'animation.scss';
 
 //reset
 
@@ -146,6 +146,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	@include prefix(transform, translateX(0%), webkit ms moz o);
 }
 
+//Content
+
 .contentLeft{
 	align-items:flex-start;
 	justify-content: center;
@@ -161,6 +163,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	margin-bottom: 30px;
 }
 
+.contentLeft__mainTitle--white, 
+.contentCenter__mainTitle--white {
+	color: $blanc;
+}
+
 .contentLeft__copy,
 .contentCenter__copy{
 	margin-bottom: 30px;
@@ -172,8 +179,16 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	@include prefix(transition, color 0.6s ease, webkit ms moz o);
 }
 
+.contentLeft__copy--txtVert,
+.contentCenter__copy--txtVert{
+	color: $vert;
+	@include prefix(transition, color 0.6s ease, webkit ms moz o);
+}
+
 a[class|="contentLeft__copy--txtRose"]:hover,
-a[class|="contentCenter__copy--txtRose"]:hover{
+a[class|="contentCenter__copy--txtRose"]:hover,
+a[class|="contentLeft__copy--txtVert"]:hover,
+a[class|="contentCenter__copy--txtVert"]:hover{
 	color: $bleu;
 }
 
@@ -187,6 +202,17 @@ a[class|="contentCenter__copy--txtRose"]:hover{
 
 .contentLeft__ctaMain--vert{
 	background-color: $vert;
+}
+
+.contentLeft__ctaMain--outlinedRose{
+	background-color: transparent;
+	border: solid 2px $rose;
+	color: $blanc;
+}
+
+.contentLeft__ctaMain--outlinedRose:hover{
+	background-color: $rose!important;
+	color:$bleu!important;
 }
 
 .contentLeft__ctaMain:hover,
@@ -292,27 +318,60 @@ a[class|="contentCenter__copy--txtRose"]:hover{
 	height: 140px;
 }
 
-.rotate {
-  animation: rotation 30s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
 .pinContainer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+//Footer
 
-//media queries
+.footerContainer .row{
+	margin-bottom: 60px;
+}
+
+.bottomPage{
+	margin-bottom: 0px!important;
+}
+
+.bottomPage p, .bottomPage a{
+	font-size: 1.1rem;
+}
+
+.footerContainer__separator{
+	background-color: $creme;
+	height: 10px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.footerContainer__facebook{
+	background-color: $bleu;
+	padding: 20px;
+}
+
+.footerContainer__facebook__txt{
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.facebookLogo{
+	margin: 0 30px -23px 0;
+}
+
+.footerContainer__facebook__ctaMain{
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.legalContainer{
+	width: 100%;
+	padding: 20px 0;
+	background-color: $creme;
+	text-align: center;
+}
+
+//////////////////////////////////////////////////////////////media queries
 
 @media (max-width: 575.98px) { 
 
@@ -322,6 +381,27 @@ a[class|="contentCenter__copy--txtRose"]:hover{
 	
 .navMobile__menuItem{
 	font-size: 2.8rem;
+}
+
+.footerContainer__facebook__txt{
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 30px;
+	
+}
+
+.footerContainer__facebook__ctaMain{
+	justify-content: center;
+	align-items: center;
+}
+
+.facebookLogo{
+	margin: 0 0 30px;
+}
+
+.footerContainer__facebook{
+	padding: 30px 0;	
 }
 
 }
@@ -342,6 +422,10 @@ a[class|="contentCenter__copy--txtRose"]:hover{
 
 .contentLeft__copy--leftMobile{
 	text-align: left;
+}
+
+.marginBottomCol{
+	margin-bottom: 60px;
 }
 
 .image{
@@ -371,6 +455,7 @@ a[class|="contentCenter__copy--txtRose"]:hover{
 	
 .cochonMaison{
 	max-width: 133%;
+	width: 133%;
 }
 
 .slideshow{
