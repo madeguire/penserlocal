@@ -43,7 +43,14 @@ p{
 	line-height: 2rem;
 }
 
-h4{
+label{
+	font-family: notoregular;
+	font-size: 1.3rem;
+	line-height: 3rem;
+}
+
+
+h4, .select-selected{
 	font-family: notobold;
 	font-size: 1.4rem;
 	line-height: 2rem;

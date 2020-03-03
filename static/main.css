@@ -70,7 +70,13 @@ p {
   line-height: 2rem;
 }
 
-h4 {
+label {
+  font-family: notoregular;
+  font-size: 1.3rem;
+  line-height: 3rem;
+}
+
+h4, .select-selected {
   font-family: notobold;
   font-size: 1.4rem;
   line-height: 2rem;
@@ -536,6 +542,18 @@ a[class|=contentCenter__copy--txtVert]:hover {
   transition: opacity 0.6s ease;
 }
 
+.main-boutiques__item {
+  margin: 30px 0px;
+  width: 31%;
+  height: auto;
+  opacity: 1;
+  -webkit-transition: opacity 0.6s ease;
+  -ms-transition: opacity 0.6s ease;
+  -moz-transition: opacity 0.6s ease;
+  -o-transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease;
+}
+
 .main-carousel__item.is-selected {
   opacity: 1;
 }
@@ -622,6 +640,87 @@ a[class|=contentCenter__copy--txtVert]:hover {
   text-align: center;
 }
 
+.inputSpacer {
+  margin-bottom: 50px;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  -webkit-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  padding: 25px !important;
+  border-top: 3px solid #F6F1E5 !important;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 63px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-color: #FEA49F transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #FEA49F transparent;
+  top: 50px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: #101357;
+  padding: 10px 25px;
+  border-top: 0px solid #F6F1E5;
+  border-bottom: 3px solid #F6F1E5;
+  border-left: 3px solid #F6F1E5;
+  border-right: 3px solid #F6F1E5;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #ffffff;
+  font-family: notoregular;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #101357;
+  color: #ffffff;
+}
+
 @media (max-width: 575.98px) {
   .navMobile {
     padding: 20% 10% 10% 10%;
@@ -691,6 +790,10 @@ a[class|=contentCenter__copy--txtVert]:hover {
 
   .contentCenter--Spacing {
     padding: 60px 0 140px;
+  }
+
+  .custom-select {
+    margin-top: 15px;
   }
 }
 @media (max-width: 991.98px) {

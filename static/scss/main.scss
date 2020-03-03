@@ -283,6 +283,14 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
 }
 
+.main-boutiques__item{
+	margin: 30px 0px;
+	width: 31%;
+	height: auto;
+	opacity: 1;
+	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
+}
+
 .main-carousel__item.is-selected{
 	opacity: 1;
 }
@@ -371,6 +379,81 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	text-align: center;
 }
 
+.inputSpacer{
+	margin-bottom: 50px;
+}
+
+// Dropdown
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  @include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+	padding: 25px!important;
+	border-top: 3px solid $creme!important;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 63px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-color: $rose transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent $rose transparent;
+  top: 50px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: $bleu;
+  padding: 10px 25px;
+  border-top: 0px solid $creme;
+  border-bottom: 3px solid $creme;
+  border-left: 3px solid $creme;
+  border-right: 3px solid $creme;
+  cursor: pointer;
+  @include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: $blanc;
+  font-family: notoregular;
+  font-size: 1.4rem;
+  line-height: 2rem;
+
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: $bleu;
+  color: $blanc;
+}
+
 //////////////////////////////////////////////////////////////media queries
 
 @media (max-width: 575.98px) { 
@@ -447,6 +530,10 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 
 .contentCenter--Spacing{
 	padding: 60px 0 140px;
+}
+
+.custom-select{
+	margin-top: 15px;
 }
 
 }
