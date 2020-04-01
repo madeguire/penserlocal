@@ -1,0 +1,56 @@
+//Animations
+
+//CochonDesktop
+
+@keyframes highlight {
+  0% { fill: $creme; }
+  50% { fill: $bleu; }
+  100% { fill: $creme; }
+} 
+
+.maison-15{
+	animation: highlight 3s 0.5s ease infinite;
+}
+.maison-28{
+	animation: highlight 3s ease infinite;
+}
+.maison-31{
+	animation: highlight 3s 1s ease infinite;
+}
+.maison-8{
+	animation: highlight 3s 1.5s ease infinite;
+}
+.maison-43{
+	animation: highlight 3s 0.5s ease infinite;
+}
+.maison-51{
+	animation: highlight 3s 1s ease infinite;
+}
+.maison-63{
+	animation: highlight 3s  ease infinite;
+}
+.maison-78{
+	animation: highlight 3s 1.5s ease infinite;
+}
+.maison-85{
+	animation: highlight 3s 1.5s ease infinite;
+}
+.maison-42{
+	animation: highlight 3s 0.5s ease infinite;
+}
+
+
+// Pin rotation
+
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

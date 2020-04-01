@@ -1,0 +1,1094 @@
+@import 'variables.scss', 'fonts.scss', 'selectors.scss', 'mixins.scss', 'animation.scss';
+
+//reset
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;vertical-align:baseline; font-weight: normal;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+//Header
+
+.mainHeader{
+	padding: 20px 0 50px 0;
+	z-index: 99;
+}
+
+.logo{
+	max-width: 100px;
+}
+
+.whiteLogo{
+	position: fixed;
+	z-index: 91;
+	width: 100%;
+}
+
+.whiteLogo--zIndex{
+	z-index: 90;
+}
+
+.whiteLogo--mask{
+	@include prefix(clip-path, inset(0px 0px 0px 100vw), webkit ms moz o);
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.whiteLogo--maskSlideIn{
+	@include prefix(clip-path, inset(0px 0px 0px -20vw), webkit ms moz o);
+}
+
+.navDesktop{
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.navDesktop__menuItem{
+	padding: 13px 20px;
+	border: solid 3px $blanc;
+	@include prefix(transition, border-color 0.3s ease, webkit ms moz o);
+}
+
+.navDesktop__menuItem:hover,
+.navDesktop__menuItem:focus{
+	border: solid 3px $rose;
+}
+
+.navDesktop__separator{
+	width: 3px;
+	height: 48px;
+	margin: 0 20px;
+	background-color: $rose;
+}
+
+.burger{
+	width: 80px;
+	height: 80px;
+	background-color: $creme;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 90;
+}
+
+.burger__menuLine{
+	width: 22px;
+	height: 4px;
+	background-color: $bleu;
+	border-radius: 2px;
+	margin-bottom: 4px;
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+	transform-origin: center center;
+	
+}
+
+.burger__menuLine--topLineAfter{
+	@include prefix(transform, rotate(45deg) translateY(5px) translateX(6px), webkit ms moz o);
+}
+
+.burger__menuLine--middleLineAfter{
+	@include prefix(transform, scale(0,1), webkit ms moz o);
+}
+
+.burger__menuLine--bottomLineAfter{
+	@include prefix(transform, rotate(-45deg) translateY(-5px) translateX(6px), webkit ms moz o);
+}
+
+.navMobile{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $bleu;
+	top: 0px;
+	left: 0px;
+	z-index: 80;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	padding: 10%;
+	overflow: hidden;
+}
+
+.navMobile--overflowInit{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.navMobile--overflow{
+	overflow: hidden;
+}
+
+.navMobile__spacer{
+	height: 40px;
+}
+
+.navMobile__menuItem{
+	color: $creme;
+	font-size: 40px;
+	padding: 0 0 20px 0;
+	font-family: lorabold;
+	font-size: 5rem;
+}
+
+.navMobile__separator{
+	width: 100%;
+	height: 10px;
+	background-color: $rose;
+	border-radius: 5px;
+}
+
+.navMobile--init{
+	@include prefix(transform, translateX(100%), webkit ms moz o);
+	@include prefix(transition, transform 0.6s ease, webkit ms moz o);
+}
+
+.navMobile--slideIn{
+	@include prefix(transform, translateX(0%), webkit ms moz o);
+}
+
+//Content
+
+.contentLeft{
+	align-items:flex-start;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.contentLeft--removePaddingLeft,
+.contentLeft--removePaddingLeftInner{
+	padding-left: 0px;
+}
+
+.contentLeft--removePaddingRight,
+.contentLeft--removePaddingRightInner{
+	padding-right: 0px;
+}
+
+.contentLeft--topSpacer{
+	margin-top: 60px;
+}
+
+.contentLeft__mainTitle, 
+.contentCenter__mainTitle {
+	margin-bottom: 30px;
+}
+
+.contentLeft__mainTitle--white, 
+.contentCenter__mainTitle--white {
+	color: $blanc;
+}
+
+.contentLeft__copy,
+.contentCenter__copy{
+	margin-bottom: 30px;
+}
+
+.contentLeft__copySmMargin{
+	margin-bottom: 15px;
+}
+
+.contentLeft__copy--sidebarTitle{
+	margin-bottom: 10px;
+}
+
+.contentLeft__copy--bottomSpacer{
+	margin-bottom: 60px;
+}
+
+.contentLeft__copy--txtRose,
+.contentCenter__copy--txtRose{
+	color: $rose;
+	@include prefix(transition, color 0.6s ease, webkit ms moz o);
+}
+
+.contentLeft__copy--txtVert,
+.contentCenter__copy--txtVert{
+	color: $vert;
+	@include prefix(transition, color 0.6s ease, webkit ms moz o);
+}
+
+a[class|="contentLeft__copy--txtRose"]:hover,
+a[class|="contentCenter__copy--txtRose"]:hover,
+a[class|="contentLeft__copy--txtVert"]:hover,
+a[class|="contentCenter__copy--txtVert"]:hover{
+	color: $bleu;
+}
+
+.contentLeft__ctaMain,
+.selectedSubmit input[type="submit"],
+.bteTab--link input[type=submit]{
+	background-color: $rose;
+	padding: 25px;
+	border-radius: 4px;
+	display: inline-block;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+	border-style: none;
+	border-width: 0px;
+	font-family: notobold;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	cursor: pointer;
+	color: $bleu;
+	-webkit-appearance: none;
+}
+
+.contentLeft__ctaMain--vert{
+	background-color: $vert;
+}
+
+.contentLeft__ctaMain--outlinedRose{
+	background-color: transparent;
+	border: solid 2px $rose;
+	color: $blanc;
+}
+
+.contentLeft__ctaMain--outlinedRose:hover{
+	background-color: $rose!important;
+	color:$bleu!important;
+}
+
+.contentLeft__ctaMain:hover,
+.contentLeft__ctaMain:focus,
+input[type="submit"]:hover{
+	background-color: $bleu;
+	color: $blanc;
+}
+
+.ctaAppliquer input[type=submit]{
+	margin-top: 30px;
+	width: 100%;
+	text-align: center;
+	padding: 28px;
+}
+
+.image{
+	max-width: 100%;
+}
+
+.image--removePaddingRight{
+	padding-right: 0px;
+}
+
+.image--negativetop{
+	margin: -80px 0 20px 0;
+	width: 15%;
+}
+
+.cochonSeul{
+	max-width: 30%;
+}
+
+.cochonMaison{
+	max-width: 100%;
+}
+
+.contentCenter{
+	align-items:center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.contentCenter--Spacing{
+	padding: 60px 0 170px;
+}
+
+.contentCenter--noTop{
+	padding-bottom: 60px;
+	margin-top: 40px;
+}
+
+.contentCenter--noTop p{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.contentCenter--noTopMargin{
+	padding: 30px 0;
+	margin-bottom: 60px;
+}
+
+.contentCenter--bgBeige{
+	background-color: $creme;
+}
+
+.contentCenter--bgRose{
+	background-color: $rose;
+}
+
+.companyFeature{
+	width: 100%;
+	overflow: hidden;
+}
+
+.companyFeature__image{
+	height: 250px;
+}
+
+.companyFeature__logo{
+	margin-top: -20%;
+}
+
+.companyFeature__logo--dimensions{
+	width: 130px;
+	height: 130px;
+	background-color: $blanc;
+	border-radius:  65px 0px 65px 65px;
+	overflow: hidden;
+	padding: 25px;
+	border: solid 5px $creme;
+	margin-bottom: 30px;
+}
+
+.companyFeature_src--repertoire{
+	height: 100%;
+}
+
+.companyFeature_src{
+	width: 100%;
+}
+
+.slideshow{
+	margin: 0 120px;
+}
+
+.main-carousel__home{
+	margin-top: -120px;
+}
+
+.main-carousel__item{
+	margin: 15px;
+	width: 31%;
+	height: auto;
+	opacity: 0.3;
+	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
+}
+
+.main-carousel__item--full{
+	width: 100%!important;
+	margin-top: -15px;
+}
+
+.main-boutiques__item{
+	margin: 30px 0px;
+	width: 31%;
+	height: auto;
+	opacity: 1;
+	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
+}
+
+.main-carousel__item.is-selected{
+	opacity: 1;
+}
+
+.bulletList{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.bullet{
+	width: 13px;
+	height: 13px;
+	margin-right: 10px;
+	margin-top: 3px;
+	border-radius: 8px;
+	background-color: $vert;
+}
+
+.pinOutline{
+	width: 200px;
+	height: 200px;
+	background-image: url('../assets/svg/pinOutlined.svg');
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.pinOutline__text{
+	width: 140px;
+	height: 140px;
+}
+
+.pinContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navZone__menuItem{
+	color: $blanc;
+	padding: 0 30px;
+	@include prefix(transition, color 0.3s ease, webkit ms moz o);
+}
+
+.navZone__menuItem:hover{
+	color: $bleu;
+}
+
+.critere{
+	list-style-image: url('../assets/svg/bullet.svg');
+}
+
+.critere--simple{
+	list-style-image: url('../assets/png/dash.png');
+	margin-bottom: 30px;
+}
+
+.critere--simple h4{
+	margin-bottom: 5px;
+}
+
+.critere li{
+	padding-left: 8px;
+	margin-left: 22px;
+}
+
+.zoneContainer__separator{
+	background-color: $creme;
+	height: 15px;
+	width: 100%;
+	border-radius: 5px;
+	margin: 30px 0 60px;
+}
+
+.bteTab {
+	border-color: $rose;
+	border-style: solid;
+	border-width: 3px 3px 0 3px;
+	padding: 35px 20%;
+}
+
+.bteTab--creme{
+	padding: 35px 20%;
+	background-color: $creme;
+	border-top: solid 3px $blanc;
+}
+
+.bteTab--cremeNoBord{
+	padding: 35px 20%;
+	background-color: $creme;
+}
+
+.bteTab--link{
+	padding: 35px 20%;
+	background-color: $rose;
+	border-style: none;
+	border-width: 0px;
+	font-family: notobold;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	cursor: pointer;
+	color: $bleu;
+	-webkit-appearance: none;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.bteTab--linkZone{
+	padding: 35px 10%;
+	width: 100%;
+	margin: 0px;
+	background-color: $rose;
+	border-style: none;
+	border-width: 0px;
+	font-family: notobold;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	cursor: pointer;
+	color: $bleu;
+	-webkit-appearance: none;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.bteTab--link:hover{
+	background-color: $bleu;
+	color: $blanc;
+}
+
+.plansContainer{
+	flex-direction: column;
+}
+
+.descLeft{
+	align-items: center;
+}
+
+.longueDesc{
+	white-space: pre-wrap;
+}
+
+input#description{
+	display: none;
+}
+
+.tempTopMargin{
+	margin-top: 50px;
+}
+
+.tempBottomMargin{
+	margin-bottom: 50px;
+}
+
+.planRadio{
+	padding: 40px 0;
+	color: $rose;
+	border: solid 3px $rose;
+	cursor: pointer;
+}
+
+.planFormLabel{
+	color: $rose;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.planRadio input{
+	z-index: 20;
+	visibility: hidden;
+	position: absolute;
+	left:-9999px;	
+}
+
+.firstChecked{
+	background-color: $rose;
+	color: $blanc;
+}
+
+.arrowContainer{
+	position: relative;
+}
+
+.arrow{
+	position:absolute;
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	z-index: 10;
+}
+
+.arrow__box{
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	border: solid 3px $rose;
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: $blanc;
+}
+
+.arrow__svg{
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+	@include prefix(transform, rotate(0deg), webkit ms moz o);
+}
+
+.arrow__svg--Base{
+	@include prefix(transform, rotate(180deg), webkit ms moz o);
+}
+
+.arrow__svg--BaseMob{
+	@include prefix(transform, rotate(270deg)!important, webkit ms moz o);
+}
+
+.rowplans{
+	margin-bottom: 30px;
+}
+
+.customFileField{
+	width: 100%;
+	cursor: pointer;
+	padding: 25px!important;
+	border: 3px solid $creme!important;
+}
+
+.customTxtField{
+	width: 100%;
+	cursor: text!important;
+}
+
+.customTxtField::placeholder{
+	color: #D2D2D2;	
+}
+
+.formTitle{
+	margin-top: 60px;
+}
+
+.topField{
+	margin-top: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.fieldrequirements{
+	font-family: notoregular;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+}
+
+.radioSpacing{
+	line-height: 3rem;
+}
+
+label .fakeh4{
+	margin-left: 15px;
+}
+
+.infoSubmit{
+	padding: 15px 30px;
+	border: solid 3px $rose;
+}
+
+.submitContainer{
+	align-items: stretch;
+	align-content: stretch;
+	justify-content: flex-start;
+}
+
+.submitbtn{
+	margin: 10px 0 0 -3px;
+}
+
+.containerSubmit{
+	margin-top: 50px;
+}
+
+.fakeh4Nomargin{
+	margin-left: 0px!important;
+	text-transform: uppercase;
+}
+
+//Footer
+
+.footerContainer .row{
+	margin-bottom: 60px;
+}
+
+.bottomPage{
+	margin-bottom: 0px!important;
+}
+
+.bottomPage p, .bottomPage a{
+	font-size: 1.1rem;
+}
+
+.footerContainer__separator, 
+.sidebar__contentSeparator{
+	background-color: $creme;
+	height: 5px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+
+.sidebar__contentSeparator,
+.sidebar__weblink,
+.sidebar__mediaSociaux,
+.sidebar__address{
+	margin-bottom: 30px;
+}
+
+.sidebar__icoMedias{
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.sidebar__icoMedias:hover{
+	@include prefix(transform, rotate(360deg), webkit ms moz o);
+}
+
+.sidebar__icoLink{
+	margin-right: 10px;
+}
+
+.footerContainer__facebook{
+	background-color: $bleu;
+	padding: 20px;
+}
+
+.footerContainer__facebook__txt{
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.facebookLogo{
+	margin: 0 30px -23px 0;
+}
+
+.footerContainer__facebook__ctaMain{
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.legalContainer{
+	width: 100%;
+	padding: 20px 0;
+	background-color: $creme;
+	text-align: center;
+}
+
+.inputSpacer{
+	margin-bottom: 50px;
+}
+
+.breadcrumb{
+	margin-bottom: 40px;
+}
+
+.breadcrumb li, .breadcrumb__path:before, .breadcrumb__path p{
+	float: left;
+	display: inline-block;
+}
+
+.breadcrumb__path p{
+	line-height: 16px;
+}
+
+.breadcrumb__path:before{
+	content: "\003e";
+	padding: 0 10px;
+	font-family: notoregular;
+	font-size: 1.4rem;
+	line-height: 2rem;
+}
+
+.sidebar__separator{
+	width: 5px;
+	height: 100%;
+	background-color: $creme;
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+.sidebar__cta{
+	color: $bleu;
+}
+
+.sidebar__Logo{
+	padding: 0px 40px 40px 0;
+}
+
+// Dropdown
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  @include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+	padding: 25px!important;
+	border-top: 3px solid $creme!important;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 63px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-color: $rose transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent $rose transparent;
+  top: 50px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: $bleu;
+  padding: 10px 25px;
+  border-top: 0px solid $creme;
+  border-bottom: 3px solid $creme;
+  border-left: 3px solid $creme;
+  border-right: 3px solid $creme;
+  cursor: pointer;
+  @include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: $blanc;
+  font-family: notoregular;
+  font-size: 1.4rem;
+  line-height: 2rem;
+
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: $bleu;
+  color: $blanc!important;
+}
+
+//////////////////////////////////////////////////////////////media queries
+
+@media (max-width: 575.98px) { 
+
+.navMobile{
+	padding: 20% 10% 10% 10%;
+}
+	
+.navMobile__menuItem{
+	font-size: 2.8rem;
+}
+
+.footerContainer__facebook__txt{
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 30px;
+	
+}
+
+.footerContainer__facebook__ctaMain{
+	justify-content: center;
+	align-items: center;
+}
+
+.facebookLogo{
+	margin: 0 0 30px;
+}
+
+.footerContainer__facebook{
+	padding: 30px 0;	
+}
+
+input[type="submit"]{
+	padding: 35px;
+}
+
+.submitbtn{
+	margin: -3px 0 0 0;
+	width: 100%;
+	font-size: 2rem!important;
+}
+
+}
+
+@media (max-width: 767.98px) { 
+	
+.sidebar__Logo{
+	width: 50%;
+}
+	
+.mainHeader{
+	padding: 20px 10px 20px 10px;
+}
+
+.navMobile__menuItem{
+	text-align: left;
+}
+	
+.contentLeft{
+	text-align: center;
+}
+
+.contentLeft__copy--leftMobile{
+	text-align: left;
+}
+
+.marginBottomCol{
+	margin-bottom: 60px;
+}
+
+.image{
+	text-align: center;
+	padding: 0 0 20px 0;
+}
+
+.image--removePaddingRight{
+	padding-right: 15px;
+}
+
+.contentLeft--removePaddingLeft{
+	padding-left: 15px;	
+}
+
+.main-carousel__item{
+	width: 70%;
+}
+
+.contentCenter--Spacing{
+	padding: 60px 0 140px;
+}
+
+.custom-select{
+	margin-top: 15px;
+}
+
+.image--negativetop{
+	margin: -60px 0 20px 0;
+	width: 100px;
+}
+
+.critere--container{
+	justify-content: center;
+}
+
+.bteTab, 
+.bteTab--creme,
+.bteTab--cremeNoBord,
+.bteTab--link{
+	padding: 20px 10%;
+}
+
+.bottom-md-Margin{
+	margin-bottom: 60px;
+}
+
+.arrow__svg{
+	@include prefix(transform, rotate(90deg), webkit ms moz o);
+}
+
+.submitbtn{
+	margin: -3px 0 0 0;
+	width: 100%;
+}
+
+.mobileTopSpacing{
+	margin-top: 30px;
+}
+
+}
+
+
+
+@media (max-width: 991.98px) { 
+	
+.sidebar{
+	margin-bottom: 30px;
+}
+
+.sidebar__contentSeparator{
+	width: 5px;
+	height: 100%;
+}
+	
+.cochonMaison{
+	max-width: 133%;
+	width: 133%;
+}
+
+.slideshow{
+	margin: 0;
+}
+
+.image--negativetop{
+	margin: -50px 0 20px 0;
+}
+
+.bteTab, 
+.bteTab--creme,
+.bteTab--cremeNoBord,
+.bteTab--link{
+	padding: 25px 15%;
+}
+
+.ctaAppliquer input[type=submit]{
+	margin-top: -20px;
+}
+
+	 }
+	 
+
+
+
+// Small devices (landscape phones, 576px and up)
+
+@media (min-width: 576px) { 
+	
+.contentCenter--noTop{
+	margin-top: 40px;
+}
+	
+	 }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+	
+.pinOutline{
+	width: 560px;
+	height: 560px;
+	margin-left: -200px;
+	margin-bottom: auto;
+}
+
+.pinOutline__text{
+	width: auto;
+	height: auto;
+}
+
+.pinContainer{
+	display: block;
+}
+
+.sidebar__Logo{
+	width: 70%;
+}
+
+.contentCenter--noTop{
+	margin-top: 20px;
+}
+	
+	 }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	
+.pinOutline{
+	margin-left: -100px;
+}
+
+.sidebar__Logo{
+	padding: 0 60px 40px 0;
+	width: 100%;
+}
+
+.contentCenter--noTop{
+	margin-top: 60px;
+}
+
+	 }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+	
+	.pinOutline{
+	margin-left: auto;
+}
+
+.contentCenter--noTop{
+	margin-top: 80px;
+}
+	
+	 }
+	
+	

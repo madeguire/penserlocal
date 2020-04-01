@@ -1,0 +1,360 @@
+{% include '_header.twig' %}
+  <body class="navMobile--overflowInit">
+    <section>
+	    <div class="container-sm contentCenter contentCenter--noTop contentCenter--bgBeige">
+		    <img alt="icone_formulaire" class="image--negativetop" src="assets/svg/formulaire.svg">
+			<h1 class="contentCenter__mainTitle">
+			Inscrivez votre&nbsp;entreprise
+			</h1>
+			<p>
+			Remplir ce formulaire de la façon la plus adéquate et précise possible permettra à vos clients potentiels de mieux vous&nbsp;trouver&nbsp;!  
+			</p>		    
+	    </div>
+	    {% macro errorList(errors) %}
+		    {% if errors %}
+		        <ul class="errors">
+		            {% for error in errors %}
+		                <li>{{ error }}</li>
+		            {% endfor %}
+		        </ul>
+		    {% endif %}
+		{% endmacro %}
+		{% from _self import errorList %}
+	    <form action="" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+	    	{{ csrfInput() }}
+	    	<input type="hidden" name="action" value="guest-entries/save">
+			<input type="hidden" name="sectionUid" value="b22ccd69-beaa-4b13-b37c-ef8f9bfd79fe">
+			{{ redirectInput('formsucces') }}
+		    <div class="container tempTopMargin tempBottomMargin">
+			    <h2 class="contentLeft__mainTitle">
+				    Plan choisi
+			    </h2>
+		    	<div class="row no-gutters arrowContainer d-none d-md-block">
+			    	<div class="col-2 offset-5 arrow">
+					    <div class="arrow__box">
+						    <img alt="fleche" class="arrow__svg" src="assets/svg/arrow.svg">
+						</div>
+			    	</div>
+			    </div>
+			    <div class="row d-flex no-gutters rowplans">
+				    <label class="col-md-6 contentCenter planRadio planFormLabel base">
+				    	<span>La base <br> </span>
+				    	<span class="fakeh4 fakeh4Nomargin lessTopMargin">gratuit</span>
+				    	{% set labase = craft.app.request.getParam('base') %}
+				    	{% set lessentiel = craft.app.request.getParam('essentiel') %}
+				    	{% set base = 'Choisir la base' %}
+				    	{% set essentiel = "Choisir l'essentiel" %}
+				    	{% set checked = 'checked=checked' %}
+						<input type="radio" name="plan" value="laBase" {{ labase == base ? checked }}>
+					</label>
+					<label class="col-md-6 contentCenter planRadio planFormLabel firstChecked essentiel">
+				    	<span>L'essentiel</span><br>
+				    	<span class="fakeh4 fakeh4Nomargin lessTopMargin">35$ / année</span>
+						<input type="radio" name="plan" value="lEssentiel" {{ lessentiel == essentiel ? checked }}>
+					</label>
+			    </div>
+			    <div class="row">
+				    <div class="col-12 d-flex contentCenter">
+					    <a href="zone" class="contentCenter__copy--txtRose">
+						    Plus de détails sur les plans »
+					    </a>
+				    </div>
+			    </div>
+		    </div>
+		    <div class="container">
+			    <div class="row">
+				    <div class=" col-12 col-xl-10">
+					    <div class="container-fluid">
+						    <div class="row">
+							    <h2 class="contentLeft__mainTitle">
+									Informations sur vous (propriétaire)
+			    				</h2>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">  
+									<label for="prenom">Prénom*</label><br>
+									<input class="select-selected customTxtField" type="text" id="prenom" name="fields[prenom]" placeholder="Prénom" required>
+								    {% if entry is defined %}
+								        {{ errorList(entry.getErrors('prenom')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="nom">Nom*</label><br>
+									<input class="select-selected customTxtField" type="text" id="nom" name="fields[nom]"  placeholder="Nom" name="fields[nom]" required>
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('nom')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="courriel">Courriel*</label><br>
+									<input class="select-selected customTxtField" type="text" id="courriel" name="fields[courriel]" placeholder="courriel@fournisseur.com" required>
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('courriel')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row">
+							    <h2 class="contentLeft__mainTitle formTitle">
+									Informations sur votre entreprise
+			    				</h2>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="nomentreprise">Nom de votre entreprise*</label><br>
+									<input class="select-selected customTxtField" id="nomDeLentreprise" type="text" name="fields[nomDeLentreprise]" placeholder="Nom de l'entreprise" required>
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('nomDeLentreprise')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner"> 
+									<div class="custom-select contentLeft__copy--leftMobile">
+										{% set field = craft.app.fields.getFieldByHandle('categoriedrop') %}
+										<label>Catégories*</label>
+										<select name='fields[categoriedrop]' id='categorie' required>
+										    <option value="Choisir une catégorie">Choisir une catégorie</option>
+										    {% for option in field.options %}
+										    {% set selected = entry is defined
+								            ? entry.categoriedrop.value == option.value
+								            : option.default %}
+										    <option value="{{ option.value }}"{% if selected %}selected{% endif %}>{{ option.label }}</option>
+										    {% endfor %}
+				  						</select>
+									</div>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<div class="custom-select contentLeft__copy--leftMobile">
+										{% set field = craft.app.fields.getFieldByHandle('regiondrop') %}
+										<label>Région*</label>
+										<select name='fields[regiondrop]' id='region' required>
+										    <option value="0">Choisir une région</option>
+										    {% for option in field.options %}
+										    {% set selected = entry is defined
+								            ? entry.regiondrop.value == option.value
+								            : option.default %}
+										    <option value="{{ option.value }}"{% if selected %}selected{% endif %}>{{ option.label }}</option>
+										    {% endfor %}
+				  						</select>
+									</div>
+							    </div>
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="logo">Votre logo*</label><br>
+									<input class="customFileField" type="file" id="logo" name="fields[logo][]" accept=".jpg, .jpeg, .png, .svg" required>
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 1 image maximum<br>
+										- Poids maximal de 1Mo
+									</p>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-12 contentLeft--removePaddingLeftInner topField">
+									<label for="courtedescription">Courte description*</label><br>
+									<textarea placeholder="Courte description de 300 caractères maximum" class="select-selected customTxtField" id="courtedescription" rows="1" maxlength="300" name="fields[courteDescription]" required></textarea>
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('courteDescription')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-12 contentLeft--removePaddingLeftInner topField">
+									<label for="longuedescription">Longue description</label><br>
+									<textarea placeholder="Longue description de 3000 caractères maximum" class="select-selected customTxtField" id="longuedescription" name="fields[longueDescription]" rows="20" maxlength="3000"></textarea>
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('longueDescription')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="adresse">Adresse (Pignon sur rue)</label><br>
+									<input class="select-selected customTxtField" type="text" id="adresse" name="fields[adresse]" placeholder="1234 Nom de la rue">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('adresse')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="numappart">Numéro d'appartement</label><br>
+									<input class="select-selected customTxtField" type="number" id="numappart" name="fields[numeroDappartement]" placeholder="Numéro">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('numeroDappartement')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="ville">Ville</label><br>
+									<input class="select-selected customTxtField" type="text" id="ville" name="fields[ville]" placeholder="Nom de ville">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('ville')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="codepostal">Code postal</label><br>
+									<input class="select-selected customTxtField" type="text" id="codepostal" name="fields[codePostal]" placeholder="H1H1H1">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('codePostal')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="adresseweb">Adresse web</label><br>
+									<input class="select-selected customTxtField" type="url" id="adresseweb" name="fields[adresseWeb]" placeholder="liens(url)">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('adresseWeb')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+										<label for="facebook">Facebook</label><br>
+										<input class="select-selected customTxtField" type="url" id="facebook" name="fields[facebook]" placeholder="liens(url)">
+										{% if entry is defined %}
+								        {{ errorList(entry.getErrors('facebook')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="instagram">Instagram</label><br>
+									<input class="select-selected customTxtField" type="url" id="instagram" name="fields[instagram]" placeholder="liens(url)">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('instagram')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="twitter">Twitter</label><br>
+									<input class="select-selected customTxtField" type="url" id="twitter" name="fields[twitter]" placeholder="liens(url)">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('twitter')) }}
+								    {% endif %}
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField essentielContent">
+									<label for="linkedin">LinkedIn</label><br>
+									<input class="select-selected customTxtField" type="url" id="linkedin" name="fields[linkedin]" placeholder="liens(url)">
+									{% if entry is defined %}
+								        {{ errorList(entry.getErrors('linkedin')) }}
+								    {% endif %}
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="images">Images représentant votre compagnie</label><br>
+									<input class="customFileField" type="file" id="images" name="fields[imagesDeLentreprise][]" multiple accept=".jpg, .jpeg, .png" required>
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 3 images maximum<br>
+										- Poids maximal de 1Mo par photo
+									</p>
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <h2 class="contentLeft__mainTitle formTitle">
+									Promotion du 3 novembre
+			    				</h2>
+						    </div>
+						    <div class="row essentielContent">
+							    <p class="contentLeft__mainTitle contentLeft__copy--leftMobile">
+									Vous pouvez envoyer votre promotion via courriel plus tard, nous vous le rappellerons plus tard via courriel.
+			    				</p>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="promo">Images représentant votre compagnie</label><br>
+									<input class="customFileField" type="file" id="promo" name="fields[promotion][]" accept=".jpg, .jpeg, .png">
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 1 image maximum<br>
+										- Poids maximal de 1Mo
+									</p>
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<p class="fakelabel contentLeft__copy--leftMobile mobileTopSpacing">Affichage de votre promotion</p><br>
+									{% set field = craft.app.fields.getFieldByHandle('affichageDeLaPromotion') %}
+									{% for option in field.options %}
+									{% set selected = entry is defined
+						            ? entry.affichageDeLaPromotion.value == option.value
+						            : option.default %}
+						            <label class="fakeh4 radioSpacing">
+									<input type="radio" name="fields[affichageDeLaPromotion]" value="{{ option.value }}" {% if selected %}checked{% endif %}>
+									{{ option.label }}</label><br>
+									{% endfor %}									
+							    </div>
+						    </div>
+						    <div class="row">
+						    	<div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+						    		<input id="description" name="description" type="text">
+						    	</div>
+						    </div>
+						    <div class="row containerSubmit">
+							    <div class="col-md-6 col-lg-5 contentLeft--removePaddingLeftInner contentLeft--removePaddingRightInner topField essentielContent">
+									<div class="submitContainer d-flex">
+									    <div class="infoSubmit">
+										    <p class="contentLeft">
+											    Vous serez redirigé vers abricotine.ca 
+		afin d’effectuer votre paiement
+										    </p>
+									    </div>
+								    </div>
+							    </div>
+							    <div class="col-md-2 contentLeft--removePaddingLeftInner contentLeft--removePaddingRightInner selectedSubmit">
+							    	<input type="hidden" name="resulturl" value="formsucces.twig">
+									<input class="submitbtn" type="submit" value="Publish">
+							    </div>
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </form>
+    </section>
+    {% include '_footer.twig' %}
+	<script>
+	
+$(function() {
+	
+	{% if labase == base %}
+	$( document ).ready(function() {
+		$('.essentielContent').addClass( "d-none" );
+		$('.arrow__svg').addClass( "arrow__svg--Base" );
+		$('.essentiel').css({"background-color": "#ffffff", "color": "#FEA49F"});
+		$('.base').css({"background-color": "#FEA49F", "color": "#ffffff", "border": "solid 3px #FEA49F"});	
+	});
+	{% endif %}
+	
+	
+	$('.planRadio input[type="radio"]').click(function() {
+        $this = $(this);
+        $label = $this.parent();
+        // first make ALL labels normal
+        $label.parent().parent().find('label').css({"background-color": "#ffffff", "color": "#FEA49F"});
+        // then color just THIS one
+        $label.css({"background-color": "#FEA49F", "color": "#ffffff", "border": "solid 3px #FEA49F"});
+        $("arrow__svg").toggleClass("arrow__svg--Base");
+  	});
+  	
+  	$('.base').click(function() {
+  		$('.essentielContent').addClass( "d-none" );
+  		$('.arrow__svg').addClass( "arrow__svg--Base" );
+  	});
+  	
+  	$('.essentiel').click(function() {
+  		$('.essentielContent').removeClass( "d-none" );
+  		$('.arrow__svg').removeClass( "arrow__svg--Base" );
+  	});
+    
+    $(function() {
+		$('.infoSubmit').matchHeight({
+	        target: $('.submitbtn')
+	    });
+	    
+	    $('.arrow').matchHeight({
+	        target: $('.rowplans')
+	    });
+	});
+	
+	
+});
+  
+	</script>
+      </body>
+</html>

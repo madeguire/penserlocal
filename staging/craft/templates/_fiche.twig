@@ -1,0 +1,178 @@
+{% include '_header.twig' %}
+{% block main %}
+  <body class="navMobile--overflowInit">
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col breadcrumb d-none d-sm-block">
+					<ul>
+						<li class="breadcrumb__home">
+							<a href="index">
+								<img alt="Page d'accueil" src="assets/svg/maison.svg">
+							</a>
+						</li>
+						<li class="breadcrumb__path">
+							<a href="repertoire">
+								Annuaire des entreprises
+							</a>
+						</li>
+						<li class="breadcrumb__path">
+							<p>
+								{{ entry.title }}
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<h1 class="contentLeft__mainTitle">{{ entry.title }}</h1>
+			<div class="row">
+				<div class="col-lg-8 order-3 order-lg-1">
+					<div class="contentLeft">
+					    <div class="main-carousel">
+					    	{% set photosEntreprises = entry.imagesDeLentreprise.all() %}
+					    	{% for img in photosEntreprises %}
+							<div class="carousel-cell main-carousel__item main-carousel__item--full">
+							    <div class="d-flex contentCenter">
+									<img class="companyFeature_src" src="{{img.url}}">
+							    </div>
+							</div>
+							{% endfor %}
+					    </div>
+					</div>
+					<div class="contentLeft contentLeft--topSpacer">
+						<h2 class="contentLeft__mainTitle"> Description </h2>
+						<p class="contentLeft__copy contentLeft__copy--bottomSpacer">{{ entry.longueDescription }}
+						</p>
+					</div>
+					{% if entry.promotion|length %}
+					<h2 class="contentLeft__mainTitle"> PROMOTION DU 3 NOVEMBRE 2020 </h2>
+					{% set promo = entry.promotion.all() %}
+					{% for img in promo %}
+					<div>
+						<img class="image" src="{{img.url}}">
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+				<div class="col-lg-1 order-2">
+					<div class="sidebar__separator">
+					</div>
+				</div>
+				<div class="col-lg-3 order-1 order-lg-3">
+					<div class="container sidebar">
+						<div class="row">
+							<div class="col-md-6 col-lg-12 contentLeft--removePaddingLeft">
+								<div class="contentLeft">
+									{% set logo = entry.logo.one() %}
+									<img class="image sidebar__Logo" src="{{logo.url}}">
+								</div>
+								<h4 class="contentLeft contentLeft__mainTitle">{{ entry.courteDescription }}</h4>
+								<div class="sidebar__category">
+									<p class="contentLeft__copy--sidebarTitle">
+										Catégorie de produits
+									</p>
+									{% for tag in entry.categorie.all() %}
+									<h2 class="contentLeft__mainTitle">
+										{{ tag.title }}
+									</h2>
+									{%endfor%}
+								</div>
+								<div class="sidebar__region">
+									<p class="contentLeft__copy--sidebarTitle">
+										Région
+									</p>
+									{% for tag in entry.region.all() %}
+									<h2 class="contentLeft__mainTitle">
+										{{ tag.title }}
+									</h2>
+									{%endfor%}
+								</div>
+							</div>
+							<div class="col-md-1 col-lg-12 d-none d-md-block contentLeft--removePaddingLeft">
+								<div class="sidebar__contentSeparator"></div>
+							</div>
+							<div class="col-md-5 col-lg-12 contentLeft--removePaddingLeft">
+								{% if entry.adresseWeb|length %}
+								<div class="sidebar__weblink">
+									<p class="contentLeft__copy--sidebarTitle">
+										Site web
+									</p>
+									<div class="contentLeft">
+										<a href="{{ entry.adresseWeb }}" class="contentLeft__ctaMain contentLeft__ctaMain--outlinedRose sidebar__cta">
+									    Visitez le site »
+								    	</a>
+									</div>
+								</div>
+								{% endif %}
+								{% if entry.facebook|length or entry.instagram|length or entry.linkedin|length %}
+								<div class="sidebar__mediaSociaux">
+									<p class="contentLeft__copy--sidebarTitle">
+										Médias sociaux
+									</p>
+									<div class="contentLeft">
+										{% if entry.facebook|length %}
+										<a class="sidebar__icoLink" href="{{ entry.facebook }}">
+											<img alt="facebook" class="sidebar__icoMedias" src="assets/svg/ico-facebook.svg">
+										</a>
+										{% endif %}
+										{% if entry.instagram|length %}
+										<a class="sidebar__icoLink" href="{{ entry.instagram }}">
+											<img alt="instagram" class="sidebar__icoMedias" src="assets/svg/ico-instagram.svg">
+										</a>
+										{% endif %}
+										{% if entry.twitter|length %}
+										<a class="sidebar__icoLink" href="{{ entry.twitter }}">
+											<img alt="linkedin" class="sidebar__icoMedias" src="assets/svg/ico-twitter.svg">
+										</a>
+										{% endif %}
+										{% if entry.linkedin|length %}
+										<a class="sidebar__icoLink" href="{{ entry.linkedin }}">
+											<img alt="linkedin" class="sidebar__icoMedias" src="assets/svg/ico-linkedin.svg">
+										</a>
+										{% endif %}
+									</div>
+								</div>
+								{% endif %}
+								{% if entry.adresse|length or entry.ville|length or entry.codePostal|length %}
+								<div class="sidebar__address">
+									<p class="contentLeft__copy--sidebarTitle">
+										Adresse
+									</p>
+									<h4 class="contentLeft sidebar__addressContent">
+										{{ entry.adresse }} <br>
+										{% if entry.ville|length  %}
+										{{ entry.ville }}, Qc <br>
+										{% endif %}
+										{{ entry.codePostal }}
+									</h4>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endblock %}
+    {% include '_footer.twig' %}
+	<script>
+
+//Slideshow
+
+$('.main-carousel').flickity({
+  // options
+  cellAlign: 'center',
+  contain: true,
+  wrapAround: true,
+  autoPlay: false,
+  lazyLoad: false,
+  prevNextButtons: false,
+  pageDots: true,
+  fade: true,
+  imagesLoaded: true,
+  adaptiveHeight: true
+});    
+	</script>
+      </body>
+</html>

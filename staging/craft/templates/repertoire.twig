@@ -1,0 +1,84 @@
+{% include '_header.twig' %}
+  <body class="navMobile--overflowInit">
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col contentLeft">
+					<h1 class="contentLeft__mainTitle">
+						Découvrez les<br>entreprises de chez nous !<br>
+					</h1>
+				</div>
+			</div>	
+			<div id="filterAnchor" class="row">
+				<div class="col-lg-5 contentLeft">
+					<div class="custom-select contentLeft__copy--leftMobile">
+						<label for="categorie">Catégories</label>
+						<select id="categorie" name="categorie" form="filtre">
+						    <option value=":notempty:">Toutes les catégories</option>
+						    <option value=":notempty:">Toutes les catégories</option>
+						    {% set selectedCat = craft.app.request.getParam('categorie') %}
+						    {% for tag in craft.tags.group('tagcategorie').all() %}
+						    <option value="{{ tag.id }}" {{ tag.id == selectedCat ? 'selected' }}>{{ tag.title }}</option>
+						    {% endfor %}
+  						</select>
+					</div>
+				</div>
+				<div class="col-lg-5 contentLeft inputSpacer">
+					<div class="custom-select contentLeft__copy--leftMobile">
+						<label for="region">Région</label>
+						<select id="region" name="region" form="filtre">
+						    <option value=":notempty:">Toutes les régions</option>
+						    <option value=":notempty:">Toutes les régions</option>
+						    {% set selectedReg = craft.app.request.getParam('region') %}
+						    {% for tag in craft.tags.group('tagregion').all() %}
+						    <option value="{{ tag.id }}" {{ tag.id == selectedReg ? 'selected' }}>{{ tag.title }}</option>
+						    {% endfor %}
+  						</select>
+					</div>
+				</div>
+				<div class="col-lg-2 contentLeft inputSpacer">
+					<div class="custom-select contentLeft__copy--leftMobile ctaAppliquer ">
+						<form class="selectedSubmit" id="filtre" action="#filterAnchor">
+							<input type="submit" value="Appliquer">
+						</form>
+					</div>
+				</div>
+			</div>
+			<h2 class="contentLeft"> Vos commerces : </h2>
+			{% set categorieId = craft.app.request.getParam('categorie') %}
+			{% set regionId = craft.app.request.getParam('region') %}
+			{% set resultat = craft.entries().section('ficheEntreprise').region(regionId).categorie(categorieId).count() %}
+			<p class="contentLeft__maincopy" style="margin:10px 0;" >{{ resultat }} résultat(s)</p>
+			<div class="footerContainer__separator"></div>
+			<div class="row">
+				{% if resultat == 0 %}
+					<div class="col-12 contentLeft main-boutiques__item">
+						<h3> Aucune entreprise locale répertoriée ici jusqu'à présent</h3>
+					</div>
+				{% else %}
+				{% for article in craft.entries().section('ficheEntreprise').region(regionId).categorie(categorieId).all() %}
+		    	<div class="col-12 col-sm-6 col-md-4 col-lg-3 carousel-cell main-boutiques__item">
+					<div class="d-flex companyFeature contentCenter">
+						<a href="{{ article.url }}" class="companyFeature__image">
+							{% set imgEntreprise = article.imagesDeLentreprise.one() %}
+							<img class="companyFeature_src--repertoire" src="{{ imgEntreprise.url }}">
+						</a>
+						<a href="{{ article.url }}"  class="companyFeature__logo">
+							<div class="companyFeature__logo--dimensions d-flex contentCenter">
+								{% set logo = article.logo.one() %}
+								<img class="companyFeature_src" src="{{ logo.url }}">
+							</div>
+						</a>
+						<h3 class="contentCenter__copy">{{ article.nomDeLentreprise }}</h3>
+						<p class="contentCenter__copy">{{ article.courteDescription }}</p>
+						<a href="{{ article.url }}"  class="contentCenter__copy--txtRose">Plus de détails »</a>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	{% include '_footer.twig' %}
+    </body>
+</html>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="css/flickity.min.css" media="screen">
+    <title>Je dépense local</title>
+  </head>
+  <body class="navMobile--overflowInit">
+    <header class="container-sm mainHeader">
+		<div class="d-lg-none whiteLogo whiteLogo--mask whiteLogo--zIndex">
+			<div class="row">
+				<div class="col-2">
+					<a href="index.html">
+						<img alt="Je dépense local"  class="logo" src="assets/svg/logoRenverse.svg">
+					</a>
+				</div>
+			</div>
+	    </div>
+	    <div class="row">
+		    <div class="col-2">
+			    <a href="index.html">
+			    	<img alt="Je dépense local" class="logo" src="assets/svg/logoCouleur.svg">
+			    </a>
+		    </div>
+		    <nav class="col navDesktop">
+			    <div class="d-none d-lg-flex d-xl-flex">
+				    <a class="navDesktop__menuItem" href="repertoire.html">Répertoire des entreprises</a>
+				    <a class="navDesktop__menuItem" href="apropos.html">À propos</a>
+				    <a class="navDesktop__menuItem" href="contact.html">Contactez-nous</a>
+				    <div class="navDesktop__separator"></div>
+				    <a class="navDesktop__menuItem" href="zone.html">Zone entreprise</a>
+			    </div>
+			    <div class="d-lg-none">
+				    <a class="burger" id="burgerCta" href="#">
+						<div class="burger__menuLine burger__menuLine--topLine"></div>
+						<div class="burger__menuLine burger__menuLine--middleLine"></div>
+						<div class="burger__menuLine burger__menuLine--bottomLine"></div>
+				    </a>
+			    </div>
+		    </nav>
+		    <div class="d-flex d-lg-none navMobile navMobile--init">
+			    <div class="navMobile__spacer"></div>
+			    <a class="navMobile__menuItem" href="repertoire.html">Répertoire des entreprises</a>
+				<a class="navMobile__menuItem" href="apropos.htmls">À propos</a>
+				<a class="navMobile__menuItem" href="contact.html">Contactez-nous</a>
+				<div class="navMobile__separator"></div>
+				<a class="navMobile__menuItem" href="zone.html">Zone entreprise</a>
+		    </div>
+	    </div>
+    </header>
+    <section>
+	    <div class="container-sm contentCenter contentCenter--noTop contentCenter--bgBeige">
+		    <img alt="icone_formulaire" class="image--negativetop" src="assets/svg/formulaire.svg">
+			<h1 class="contentCenter__mainTitle">
+			Inscrivez votre&nbsp;entreprise
+			</h1>
+			<p>
+			Remplir ce formulaire de la façon la plus adéquate et précise possible permettra à vos clients potentiels de mieux vous&nbsp;trouver&nbsp;!  
+			</p>		    
+	    </div>
+	    <form action="/my-handling-form-page" method="post">
+		    <div class="container tempTopMargin tempBottomMargin">
+			    <h2 class="contentLeft__mainTitle">
+				    Plan choisi
+			    </h2>
+		    	<div class="row no-gutters arrowContainer d-none d-md-block">
+			    	<div class="col-2 offset-5 arrow">
+					    <div class="arrow__box">
+						    <img alt="fleche" class="arrow__svg" src="assets/svg/arrow.svg">
+						</div>
+			    	</div>
+			    </div>
+			    <div class="row d-flex no-gutters rowplans">
+				    <label class="col-md-6 contentCenter planRadio planFormLabel base">
+				    	<span>La base <br> </span>
+				    	<span class="fakeh4 fakeh4Nomargin lessTopMargin">gratuit</span>
+						<input type="radio" name="plan" value="laBase">
+					</label>
+					<label class="col-md-6 contentCenter planRadio planFormLabel firstChecked essentiel">
+				    	<span>L'essentiel</span><br>
+				    	<span class="fakeh4 fakeh4Nomargin lessTopMargin">35$ / année</span>
+						<input type="radio" name="plan" value="lEssentiel" checked="checked">
+					</label>
+			    </div>
+			    <div class="row">
+				    <div class="col-12 d-flex contentCenter">
+					    <a href="zone.html" class="contentCenter__copy--txtRose">
+						    Plus de détails sur les plans »
+					    </a>
+				    </div>
+			    </div>
+		    </div>
+		    <div class="container">
+			    <div class="row">
+				    <div class=" col-12 col-xl-10">
+					    <div class="container-fluid">
+						    <div class="row">
+							    <h2 class="contentLeft__mainTitle">
+									Informations sur vous (propriétaire)
+			    				</h2>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">  
+									<label for="prenom">Prénom*</label><br>
+									<input class="select-selected customTxtField" type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="nom">Nom*</label><br>
+									<input class="select-selected customTxtField" type="text" id="nom" name="nom" placeholder="Nom" required>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="courriel">Courriel*</label><br>
+									<input class="select-selected customTxtField" type="text" id="courriel" name="fname" placeholder="courriel@fournisseur.com" required>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <h2 class="contentLeft__mainTitle formTitle">
+									Informations sur votre entreprise
+			    				</h2>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="nomentreprise">Nom de votre entreprise*</label><br>
+									<input class="select-selected customTxtField" id="nomentreprise" type="text" name="nomentreprise" placeholder="Nom de l'entreprise" required>
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner"> 
+									<div class="custom-select contentLeft__copy--leftMobile">
+										<label>Catégories*</label>
+										<select>
+										    <option value="0">Choisir une catégorie</option>
+										    <option value="1">BMW</option>
+										    <option value="2">Citroen</option>
+										    <option value="3">Ford</option>
+										    <option value="4">Honda</option>
+										    <option value="5">Jaguar</option>
+										    <option value="6">Land Rover</option>
+										    <option value="7">Mercedes</option>
+										    <option value="8">Mini</option>
+										    <option value="9">Nissan</option>
+										    <option value="10">Toyota</option>
+										    <option value="11">Volvo</option>
+				  						</select>
+									</div>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<div class="custom-select contentLeft__copy--leftMobile">
+										<label>Région*</label>
+										<select>
+										    <option value="0">Choisir une régions</option>
+										    <option value="1">Bas-St-Laurent</option>
+										    <option value="2">Saguenay–Lac-Saint-Jean</option>
+										    <option value="3">Capitale-Nationale</option>
+										    <option value="4">Mauricie</option>
+										    <option value="5">Estrie</option>
+										    <option value="6">Montréal</option>
+										    <option value="7">Outaouais</option>
+										    <option value="8">Abitibi-Témiscamingue</option>
+										    <option value="9">Côte-Nord</option>
+										    <option value="10">Nord-du-Québec</option>
+										    <option value="11">Gaspésie–Îles-de-la-Madeleine</option>
+										    <option value="12">Chaudière-Appalaches</option>
+										    <option value="13">Laval</option>
+										    <option value="14">Lanaudière</option>
+										    <option value="15">Laurentides</option>
+										    <option value="16">Montérégie</option>
+										    <option value="17">Centre-du-Québec</option>
+				  						</select>
+									</div>
+							    </div>
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="logo">Votre logo*</label><br>
+									<input class="customFileField" type="file" id="logo" name="logo" accept=".jpg, .jpeg, .png, .svg" required>
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 1 image maximum<br>
+										- Poids maximal de 1Mo
+									</p>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-12 contentLeft--removePaddingLeftInner topField">
+									<label for="courtedescription">Courte description*</label><br>
+									<textarea placeholder="Courte description de 300 caractères maximum" class="select-selected customTxtField" id="courtedescription" name="courtedescription" rows="1" maxlength="300" required></textarea>
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-12 contentLeft--removePaddingLeftInner topField">
+									<label for="longuedescription">Longue description</label><br>
+									<textarea placeholder="Longue description de 3000 caractères maximum" class="select-selected customTxtField" id="longuedescription" name="longuedescription" rows="20" maxlength="3000"></textarea>
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="adresse">Adresse (Pignon sur rue)</label><br>
+									<input class="select-selected customTxtField" type="text" id="adresse" name="adresse" placeholder="1234 Nom de la rue">
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="numappart">Numéro d'appartement</label><br>
+									<input class="select-selected customTxtField" type="number" id="numappart" name="numappart" placeholder="Numéro">
+							    </div>
+						    </div>
+						    <div class="row">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="ville">Ville</label><br>
+									<input class="select-selected customTxtField" type="text" id="ville" name="ville" placeholder="Nom de ville">
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="codepostal">Code postal</label><br>
+									<input class="select-selected customTxtField" type="text" id="codepostal" name="codepostal" placeholder="H1H1H1">
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="adresseweb">Adresse web</label><br>
+									<input class="select-selected customTxtField" type="url" id="adresseweb" name="adresseweb" placeholder="liens(url)">
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+										<label for="facebook">Facebook</label><br>
+										<input class="select-selected customTxtField" type="url" id="facebook" name="facebook" placeholder="liens(url)">
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="instagram">Instagram</label><br>
+									<input class="select-selected customTxtField" type="url" id="instagram" name="instagram" placeholder="liens(url)">
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="twitter">Twitter</label><br>
+									<input class="select-selected customTxtField" type="url" id="twitter" name="twitter" placeholder="liens(url)">
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="linkedin">LinkedIn</label><br>
+									<input class="select-selected customTxtField" type="url" id="linkedin" name="linkedin" placeholder="liens(url)">
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<label for="images">Images représentant votre compagnie</label><br>
+									<input class="customFileField" type="file" id="images" name="images" multiple accept=".jpg, .jpeg, .png">
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 3 images maximum<br>
+										- Poids maximal de 1Mo par photo
+									</p>
+							    </div>
+						    </div>
+						    <div class="row essentielContent">
+							    <h2 class="contentLeft__mainTitle formTitle">
+									Promotion du 3 novembre
+			    				</h2>
+						    </div>
+						    <div class="row essentielContent">
+							    <p class="contentLeft__mainTitle contentLeft__copy--leftMobile">
+									Vous pouvez envoyer votre promotion via courriel plus tard, nous vous le rappellerons plus tard via courriel.
+			    				</p>
+						    </div>
+						    <div class="row essentielContent">
+							    <div class="col-md-6 contentLeft--removePaddingLeftInner topField">
+									<label for="promo">Images représentant votre compagnie</label><br>
+									<input class="customFileField" type="file" id="promo" name="promo" accept=".jpg, .jpeg, .png">
+									<p class="contentLeft fieldrequirements contentLeft__copy--leftMobile">
+										- 1 image maximum<br>
+										- Poids maximal de 1Mo
+									</p>
+							    </div>
+							    <div class="col-md-6 topField contentLeft--removePaddingLeftInner">
+									<p class="fakelabel contentLeft__copy--leftMobile mobileTopSpacing">Affichage de votre promotion</p><br>
+									<input type="radio" id="3nov" name="promo" value="3nov">
+									<label for="3nov" class="fakeh4 radioSpacing">Le 3 nomvembre uniquement</label><br>
+									<input type="radio" id="27nov" name="promo" value="27nov">
+									<label for="27nov" class="fakeh4 radioSpacing">du 27 au 3 novembre</label><br>
+							    </div>
+						    </div>
+						    <div class="row containerSubmit">
+							    <div class="col-md-6 col-lg-5 contentLeft--removePaddingLeftInner contentLeft--removePaddingRightInner topField essentielContent">
+									<div class="submitContainer d-flex">
+									    <div class="infoSubmit">
+										    <p class="contentLeft">
+											    Vous serez redirigé vers abricotine.ca 
+		afin d’effectuer votre paiement
+										    </p>
+									    </div>
+								    </div>
+							    </div>
+							    <div class="col-md-2 contentLeft--removePaddingLeftInner contentLeft--removePaddingRightInner">
+									<input class="submitbtn" type="submit" value="M'abonner">
+							    </div>
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </form>
+    </section>
+    <footer class="footerContainer">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col">
+				    <div class="footerContainer__separator">
+	    			</div>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="col-md-6 contentLeft marginBottomCol">
+				    <h2 class="contentLeft__mainTitle">JE DÉPENSE LOCAL, UNE INITIATIVE D’ABRICOTINE !</h2>
+				    <p class="contentLeft__copy"> Comprenez les motifs qui ont mené à ce regroupement et découvrez Abricotine, l’entrepreneure derrière «Je dépense local».</p>
+				    <a href="#"  class="contentLeft__copy--txtVert">Voir toutes les entreprises »</a>
+			    </div>
+			    <div class="col-md-6 contentLeft">
+				    <h2 class="contentLeft__mainTitle">VOUS AVEZ UNE QUESTION, UN SOUCIS ?</h2>
+				    <p class="contentLeft__copy"> N’hésitez pas à communiquer avec nous, que vous soyez un amoureux des artisants locaux ou que vous possédiez une entreprise d’ici. </p>
+				    <a href="#"  class="contentLeft__copy--txtVert">Communiquez avec nous »</a>
+			    </div>
+		    </div>
+		    <div class="row footerContainer__facebook">
+			    <div class="col-sm d-flex footerContainer__facebook__txt">
+				    <img alt="facebook" class="facebookLogo" src="assets/svg/facebook.svg">
+				    <h2 class="contentLeft__mainTitle--white">
+					    PARCEQU’UNE BONNE PARTIE DE L’ACTION SE PASSE SUR FACEBOOK ! 
+				    </h2>
+			    </div>
+			    <div class="col-sm-5 col-md-4 col-lg-3 d-flex footerContainer__facebook__ctaMain">
+				    <a href="#" class="contentLeft__ctaMain contentLeft__ctaMain--outlinedRose">
+					    Suivez-nous »
+				    </a>
+			    </div>
+		    </div>
+	    </div>
+	    <div class="legalContainer">
+		    <div class="container">
+			    <div class="row bottomPage">
+				    <div class="col">
+					    <p> © Penser Local, 2019. |  <a href="#"> Termes et conditions </a></p>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/jquery.matchHeight.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/flickity.pkgd.min.js"></script>
+    <script src="js/main.js"></script>
+	<script>
+
+//Plans height
+
+$(function() {
+	$('.planRadio input[type="radio"]').click(function() {
+        $this = $(this);
+        $label = $this.parent();
+        // first make ALL labels normal
+        $label.parent().parent().find('label').css({"background-color": "#ffffff", "color": "#FEA49F"});
+        // then color just THIS one
+        $label.css({"background-color": "#FEA49F", "color": "#ffffff", "border": "solid 3px #FEA49F"});
+        $("arrow__svg").toggleClass("arrow__svg--Base");
+  	});
+  	
+  	$('.base').click(function() {
+  		$('.essentielContent').addClass( "d-none" );
+  		$('.arrow__svg').addClass( "arrow__svg--Base" );
+  	});
+  	
+  	$('.essentiel').click(function() {
+  		$('.essentielContent').removeClass( "d-none" );
+  		$('.arrow__svg').removeClass( "arrow__svg--Base" );
+  	});
+    
+    $(function() {
+		$('.infoSubmit').matchHeight({
+	        target: $('.submitbtn')
+	    });
+	    
+	    $('.arrow').matchHeight({
+	        target: $('.rowplans')
+	    });
+	});
+});
+  
+	</script>
+      </body>
+</html>

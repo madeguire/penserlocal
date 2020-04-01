@@ -1,0 +1,132 @@
+{% include '_header.twig' %}
+    <section>
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-md-6 d-lg-flex d-xl-flex order-2 order-md-1 contentLeft contentLeft--removePaddingLeft">
+				    <h1 class="contentLeft__mainTitle">
+					    Le&nbsp;lieu&nbsp;de rassemblement des&nbsp;entreprises <span class="contentLeft__copy--txtRose">de&nbsp;chez&nbsp;nous&nbsp;!</span>
+				    </h1>
+				    <p class="contentLeft__copy">
+					    Encourager les entreprises québécoises, c’est faire rouler l’économie d’ici en plus d’agir de façon écoresponsable en réduisant les émissions de carbones liés à la livraison internationale de divers&nbsp;articles.
+				    </p>
+				    <a class="contentLeft__ctaMain" href="repertoire">
+						<h4>Découvrez les entreprises</h4>
+				    </a>
+			    </div>
+			    <div class="col-md-6 order-1 order-md-2 image image--removePaddingRight">
+				    {% include '_homesvg.twig' %}
+				    <img alt="Entreprises local" class="cochonSeul d-md-none " src="assets/svg/cochonSeul.svg">
+			    </div>
+		    </div>
+	    </div>    
+    </section>
+    <section>
+	    <div class="container-sm contentCenter contentCenter--Spacing contentCenter--bg">
+			<h1 class="contentCenter__mainTitle">
+			Les connaissez-vous&nbsp;?
+			</h1>
+			<p>
+			Voici quelques entreprises locales qui méritent votre&nbsp;attention&nbsp;!
+			</p>		    
+	    </div>
+	    <div class="slideshow">
+		    <div class="container-sm">
+			    <div class="row">
+				    <div class="col">
+					    <div class="main-carousel main-carousel__home">
+					    	{% for article in craft.entries().section('ficheEntreprise').limit(6).all() %}
+							<div class="carousel-cell main-carousel__item">
+							    <div class="d-flex companyFeature contentCenter">
+								    <a href="{{ article.url }}" class="companyFeature__image">
+								    	{% set imgEntreprise = article.imagesDeLentreprise.one() %}
+									    <img class="companyFeature_src--repertoire" src="{{ imgEntreprise.url }}">
+								    </a>
+								    <a href="{{ article.url }}"  class="companyFeature__logo">
+									    <div class="companyFeature__logo--dimensions d-flex contentCenter">
+									    	{% set logo = article.logo.one() %}
+									    	<img class="companyFeature_src" src="{{ logo.url }}">
+								    	</div>
+								    </a>
+								    <h3 class="contentCenter__copy">{{ article.nomDeLentreprise }}</h3>
+									<p class="contentCenter__copy">{{ article.courteDescription }}</p>
+									<a href="{{ article.url }}"  class="contentCenter__copy--txtRose">Plus de détails »</a>
+							    </div>
+							</div>
+							{% endfor %}
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+    <section>
+	    <div class="container">
+		    <div class="row justify-content-between">
+			    <div class="col-md-6 pinContainer image--removePaddingRight">
+				    <div class="pinOutline">
+					    <img alt="La belle province - Je me souviens" class="rotate pinOutline__text" src="assets/svg/txtPin.svg">
+			    	</div>
+			    </div>
+			    <div class="col-md-5 d-lg-flex d-xl-flex contentLeft">
+				    <h1 class="contentLeft__mainTitle">
+					    Vous avez une&nbsp;entreprise québécoise&nbsp;?
+				    </h1>
+				    <p class="contentLeft__copy">
+					    Bénéficiez vous aussi de cette vitrine mettant de l’avant les entrepreneurs de chez nous. Soyez présent, certains de vos clients potentiels se trouvent ici !
+				    </p>
+				    <ul>
+					    <li class="bulletList">
+					    	<div>
+						    	<div class="bullet">
+						    	</div>
+					    	</div>
+					    	<p class="contentLeft__copy contentLeft__copy--leftMobile">
+					    Disposez de votre propre espace contenant les renseignements de votre entreprise
+				    		</p>
+					    </li>
+					    <li class="bulletList">
+					    	<div>
+						    	<div class="bullet">
+						    	</div>
+					    	</div>
+					    	<p class="contentLeft__copy contentLeft__copy--leftMobile">
+					    Affichage en ligne et sur les médias sociaux de vos promotions en liens avec le 3 Novembre, la journée «Je dépense local»
+				    		</p>
+					    </li>
+					    <li class="bulletList">
+					    	<div>
+						    	<div class="bullet">
+						    	</div>
+					    	</div>
+					    	<p class="contentLeft__copy contentLeft__copy--leftMobile">
+					    Nous mettons de l’avant votre entreprise sur nos médias sociaux
+				    		</p>
+					    </li> 
+				    </ul>
+				    <a class="contentLeft__ctaMain contentLeft__ctaMain--vert" href="zone.twig">
+						<h4>Voir tous les avantages</h4>
+				    </a>
+			    </div>
+		    </div>
+	    </div>    
+    </section>
+	{% include '_footer.twig' %}
+    <script>
+
+//Slideshow
+
+$('.main-carousel').flickity({
+  // options
+  cellAlign: 'center',
+  contain: true,
+  wrapAround: true,
+  autoPlay: 2000,
+  lazyLoad: false,
+  prevNextButtons: false,
+  pageDots: false,
+  fade: true,
+  imagesLoaded: true
+});    
+	</script>
+      </body>
+</html>

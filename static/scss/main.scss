@@ -154,8 +154,18 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	flex-direction: column;
 }
 
-.contentLeft--removePaddingLeft{
+.contentLeft--removePaddingLeft,
+.contentLeft--removePaddingLeftInner{
 	padding-left: 0px;
+}
+
+.contentLeft--removePaddingRight,
+.contentLeft--removePaddingRightInner{
+	padding-right: 0px;
+}
+
+.contentLeft--topSpacer{
+	margin-top: 60px;
 }
 
 .contentLeft__mainTitle, 
@@ -171,6 +181,18 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 .contentLeft__copy,
 .contentCenter__copy{
 	margin-bottom: 30px;
+}
+
+.contentLeft__copySmMargin{
+	margin-bottom: 15px;
+}
+
+.contentLeft__copy--sidebarTitle{
+	margin-bottom: 10px;
+}
+
+.contentLeft__copy--bottomSpacer{
+	margin-bottom: 60px;
 }
 
 .contentLeft__copy--txtRose,
@@ -192,12 +214,21 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	color: $bleu;
 }
 
-.contentLeft__ctaMain{
+.contentLeft__ctaMain,
+input[type="submit"]{
 	background-color: $rose;
 	padding: 25px;
 	border-radius: 4px;
 	display: inline-block;
 	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+	border-style: none;
+	border-width: 0px;
+	font-family: notobold;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	cursor: pointer;
+	color: $bleu;
+	-webkit-appearance: none;
 }
 
 .contentLeft__ctaMain--vert{
@@ -216,13 +247,23 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 }
 
 .contentLeft__ctaMain:hover,
-.contentLeft__ctaMain:focus{
+.contentLeft__ctaMain:focus,
+input[type="submit"]:hover{
 	background-color: $bleu;
 	color: $blanc;
 }
 
+.image{
+	max-width: 100%;
+}
+
 .image--removePaddingRight{
 	padding-right: 0px;
+}
+
+.image--negativetop{
+	margin: -80px 0 20px 0;
+	width: 15%;
 }
 
 .cochonSeul{
@@ -244,8 +285,27 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	padding: 60px 0 170px;
 }
 
-.contentCenter--bg{
+.contentCenter--noTop{
+	padding-bottom: 60px;
+	margin-top: 40px;
+}
+
+.contentCenter--noTop p{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.contentCenter--noTopMargin{
+	padding: 30px 0;
+	margin-bottom: 60px;
+}
+
+.contentCenter--bgBeige{
 	background-color: $creme;
+}
+
+.contentCenter--bgRose{
+	background-color: $rose;
 }
 
 .companyFeature{
@@ -271,7 +331,7 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	margin: 0 120px;
 }
 
-.main-carousel{
+.main-carousel__home{
 	margin-top: -120px;
 }
 
@@ -281,6 +341,11 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	height: auto;
 	opacity: 0.3;
 	@include prefix(transition, opacity 0.6s ease, webkit ms moz o);
+}
+
+.main-carousel__item--full{
+	width: 100%!important;
+	margin-top: -15px;
 }
 
 .main-boutiques__item{
@@ -332,6 +397,224 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	align-items: center;
 }
 
+.navZone__menuItem{
+	color: $blanc;
+	padding: 0 30px;
+	@include prefix(transition, color 0.3s ease, webkit ms moz o);
+}
+
+.navZone__menuItem:hover{
+	color: $bleu;
+}
+
+.critere{
+	list-style-image: url('assets/svg/bullet.svg');
+}
+
+.critere--simple{
+	list-style-image: url('assets/png/dash.png');
+	margin-bottom: 30px;
+}
+
+.critere--simple h4{
+	margin-bottom: 5px;
+}
+
+.critere li{
+	padding-left: 8px;
+	margin-left: 22px;
+}
+
+.zoneContainer__separator{
+	background-color: $creme;
+	height: 15px;
+	width: 100%;
+	border-radius: 5px;
+	margin: 30px 0 60px;
+}
+
+.bteTab{
+	border-color: $rose;
+	border-style: solid;
+	border-width: 3px 3px 0 3px;
+	padding: 35px 20%;
+}
+
+.bteTab--creme{
+	padding: 35px 20%;
+	background-color: $creme;
+	border-top: solid 3px $blanc;
+}
+
+.bteTab--cremeNoBord{
+	padding: 35px 20%;
+	background-color: $creme;
+}
+
+.bteTab--link{
+	padding: 35px 20%;
+	background-color: $rose;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.bteTab--link:hover{
+	background-color: $bleu;
+	color: $blanc;
+}
+
+.plansContainer{
+	flex-direction: column;
+}
+
+.descLeft{
+	align-items: center;
+}
+
+.tempTopMargin{
+	margin-top: 50px;
+}
+
+.tempBottomMargin{
+	margin-bottom: 50px;
+}
+
+.planRadio{
+	padding: 40px 0;
+	color: $rose;
+	border: solid 3px $rose;
+	cursor: pointer;
+}
+
+.planFormLabel{
+	color: $rose;
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+}
+
+.planRadio input{
+	z-index: 20;
+	visibility: hidden;
+	position: absolute;
+	left:-9999px;	
+}
+
+.firstChecked{
+	background-color: $rose;
+	color: $blanc;
+}
+
+.arrowContainer{
+	position: relative;
+}
+
+.arrow{
+	position:absolute;
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	z-index: 10;
+}
+
+.arrow__box{
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	border: solid 3px $rose;
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: $blanc;
+}
+
+.arrow__svg{
+	@include prefix(transition, all 0.3s ease, webkit ms moz o);
+	@include prefix(transform, rotate(0deg), webkit ms moz o);
+}
+
+.arrow__svg--Base{
+	@include prefix(transform, rotate(180deg), webkit ms moz o);
+}
+
+.arrow__svg--BaseMob{
+	@include prefix(transform, rotate(270deg)!important, webkit ms moz o);
+}
+
+.rowplans{
+	margin-bottom: 30px;
+}
+
+.customFileField{
+	width: 100%;
+	cursor: pointer;
+	padding: 25px!important;
+	border: 3px solid $creme!important;
+}
+
+.customTxtField{
+	width: 100%;
+	cursor: text!important;
+}
+
+.customTxtField::placeholder{
+	color: #D2D2D2;	
+}
+
+.formTitle{
+	margin-top: 60px;
+}
+
+.topField{
+	margin-top: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.fieldrequirements{
+	font-family: notoregular;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+}
+
+.radioSpacing{
+	line-height: 3rem;
+}
+
+label .fakeh4{
+	margin-left: 15px;
+}
+
+.infoSubmit{
+	padding: 15px 30px;
+	border: solid 3px $rose;
+}
+
+.submitContainer{
+	align-items: stretch;
+	align-content: stretch;
+	justify-content: flex-start;
+}
+
+.submitbtn{
+	margin: 10px 0 0 -3px;
+}
+
+.containerSubmit{
+	margin-top: 50px;
+}
+
+.fakeh4Nomargin{
+	margin-left: 0px!important;
+	text-transform: uppercase;
+}
+
 //Footer
 
 .footerContainer .row{
@@ -346,11 +629,32 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	font-size: 1.1rem;
 }
 
-.footerContainer__separator{
+.footerContainer__separator, 
+.sidebar__contentSeparator{
 	background-color: $creme;
-	height: 10px;
+	height: 5px;
 	width: 100%;
 	border-radius: 5px;
+}
+
+
+.sidebar__contentSeparator,
+.sidebar__weblink,
+.sidebar__mediaSociaux,
+.sidebar__address{
+	margin-bottom: 30px;
+}
+
+.sidebar__icoMedias{
+	@include prefix(transition, all 0.6s ease, webkit ms moz o);
+}
+
+.sidebar__icoMedias:hover{
+	@include prefix(transform, rotate(360deg), webkit ms moz o);
+}
+
+.sidebar__icoLink{
+	margin-right: 10px;
 }
 
 .footerContainer__facebook{
@@ -381,6 +685,43 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 
 .inputSpacer{
 	margin-bottom: 50px;
+}
+
+.breadcrumb{
+	margin-bottom: 40px;
+}
+
+.breadcrumb li, .breadcrumb__path:before, .breadcrumb__path p{
+	float: left;
+	display: inline-block;
+}
+
+.breadcrumb__path p{
+	line-height: 16px;
+}
+
+.breadcrumb__path:before{
+	content: "\003e";
+	padding: 0 10px;
+	font-family: notoregular;
+	font-size: 1.4rem;
+	line-height: 2rem;
+}
+
+.sidebar__separator{
+	width: 5px;
+	height: 100%;
+	background-color: $creme;
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+.sidebar__cta{
+	color: $bleu;
+}
+
+.sidebar__Logo{
+	padding: 0px 40px 40px 0;
 }
 
 // Dropdown
@@ -451,7 +792,7 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 
 .select-items div:hover, .same-as-selected {
   background-color: $bleu;
-  color: $blanc;
+  color: $blanc!important;
 }
 
 //////////////////////////////////////////////////////////////media queries
@@ -487,9 +828,23 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	padding: 30px 0;	
 }
 
+input[type="submit"]{
+	padding: 35px;
+}
+
+.submitbtn{
+	margin: -3px 0 0 0;
+	width: 100%;
+	font-size: 2rem!important;
+}
+
 }
 
 @media (max-width: 767.98px) { 
+	
+.sidebar__Logo{
+	width: 50%;
+}
 	
 .mainHeader{
 	padding: 20px 10px 20px 10px;
@@ -536,9 +891,50 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	margin-top: 15px;
 }
 
+.image--negativetop{
+	margin: -60px 0 20px 0;
+	width: 100px;
+}
+
+.critere--container{
+	justify-content: center;
+}
+
+.bteTab, 
+.bteTab--creme,
+.bteTab--cremeNoBord,
+.bteTab--link{
+	padding: 20px 10%;
+}
+
+.bottom-md-Margin{
+	margin-bottom: 60px;
+}
+
+.arrow__svg{
+	@include prefix(transform, rotate(90deg), webkit ms moz o);
+}
+
+.submitbtn{
+	margin: -3px 0 0 0;
+	width: 100%;
+}
+
+.mobileTopSpacing{
+	margin-top: 30px;
+}
 }
 
 @media (max-width: 991.98px) { 
+	
+.sidebar{
+	margin-bottom: 30px;
+}
+
+.sidebar__contentSeparator{
+	width: 5px;
+	height: 100%;
+}
 	
 .cochonMaison{
 	max-width: 133%;
@@ -549,6 +945,17 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	margin: 0;
 }
 
+.image--negativetop{
+	margin: -50px 0 20px 0;
+}
+
+.bteTab, 
+.bteTab--creme,
+.bteTab--cremeNoBord,
+.bteTab--link{
+	padding: 25px 15%;
+}
+
 
 	 }
 	 
@@ -556,7 +963,12 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 
 
 // Small devices (landscape phones, 576px and up)
+
 @media (min-width: 576px) { 
+	
+.contentCenter--noTop{
+	margin-top: 40px;
+}
 	
 	 }
 
@@ -578,6 +990,14 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 .pinContainer{
 	display: block;
 }
+
+.sidebar__Logo{
+	width: 70%;
+}
+
+.contentCenter--noTop{
+	margin-top: 20px;
+}
 	
 	 }
 
@@ -588,6 +1008,15 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	margin-left: -100px;
 }
 
+.sidebar__Logo{
+	padding: 0 60px 40px 0;
+	width: 100%;
+}
+
+.contentCenter--noTop{
+	margin-top: 60px;
+}
+
 	 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -595,6 +1024,10 @@ a[class|="contentCenter__copy--txtVert"]:hover{
 	
 	.pinOutline{
 	margin-left: auto;
+}
+
+.contentCenter--noTop{
+	margin-top: 80px;
 }
 	
 	 }
